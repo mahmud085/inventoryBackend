@@ -1,0 +1,63 @@
+{
+  "name": "product",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "sku_number": {
+      "type": "number",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "buy_price": {
+      "type": "number",
+      "required": true
+    },
+    "sell_price": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "category": {
+      "type": "belongsTo",
+      "model": "category",
+      "foreignKey": "categoryId"
+    },
+    "supplier": {
+      "type": "belongsTo",
+      "model": "supplier",
+      "foreignKey": "supplierId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

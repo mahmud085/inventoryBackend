@@ -1,0 +1,64 @@
+{
+  "name": "buy",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "quantity": {
+      "type": "number",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "number",
+      "required": true
+    },
+    "date": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "products": {
+      "type": "belongsTo",
+      "model": "product",
+      "foreignKey": "productId"
+    },
+    "suppliers": {
+      "type": "belongsTo",
+      "model": "supplier",
+      "foreignKey": "supplierId"
+    },
+    "transactions": {
+      "type": "belongsTo",
+      "model": "transaction_buy",
+      "foreignKey": "transactionBuyId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

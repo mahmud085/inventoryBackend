@@ -1,0 +1,61 @@
+{
+  "name": "transaction_buy",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "total": {
+      "type": "number",
+      "required": true
+    },
+    "cash_out": {
+      "type": "number",
+      "required": true
+    },
+    "due": {
+      "type": "number",
+      "required": true
+    },
+    "discount": {
+      "type": "number"
+    },
+    "payment_method": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "supplier": {
+      "type": "belongsTo",
+      "model": "supplier",
+      "foreignKey": "supplierId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

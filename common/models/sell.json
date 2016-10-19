@@ -1,0 +1,69 @@
+{
+  "name": "sell",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "quantity": {
+      "type": "number",
+      "required": true
+    },
+    "amount": {
+      "type": "number",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "products": {
+      "type": "belongsTo",
+      "model": "product",
+      "foreignKey": "productId"
+    },
+    "customers": {
+      "type": "belongsTo",
+      "model": "customer",
+      "foreignKey": "customerId"
+    },
+    "transactions": {
+      "type": "belongsTo",
+      "model": "transaction_sell",
+      "foreignKey": "transactionSellId"
+    },
+    "salesAgent": {
+      "type": "belongsTo",
+      "model": "sales_agent",
+      "foreignKey": "salesagentId"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

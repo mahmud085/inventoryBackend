@@ -1,0 +1,96 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "database",
+    "public": false
+  },
+  "AccessToken": {
+    "dataSource": "database",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "database",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "database",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "database",
+    "public": false
+  },
+  "product": {
+    "dataSource": "database",
+    "public": true
+  },
+  "buy": {
+    "dataSource": "database",
+    "public": true
+  },
+  "inventory": {
+    "dataSource": "database",
+    "public": true
+  },
+  "sell": {
+    "dataSource": "database",
+    "public": true
+  },
+  "customer": {
+    "dataSource": "database",
+    "public": true
+  },
+  "supplier": {
+    "dataSource": "database",
+    "public": true
+  },
+  "sales_agent": {
+    "dataSource": "database",
+    "public": true
+  },
+  "category": {
+    "dataSource": "database",
+    "public": true
+  },
+  "user": {
+    "dataSource": "database",
+    "public": true
+  },
+  "inventory_hold": {
+    "dataSource": "database",
+    "public": true
+  },
+  "transaction_sell": {
+    "dataSource": "database",
+    "public": true
+  },
+  "transaction_buy": {
+    "dataSource": "database",
+    "public": true
+  },
+  "conversion": {
+    "dataSource": "database",
+    "public": true
+  },
+  "cash_flow": {
+    "dataSource": "database",
+    "public": true
+  },
+  "order": {
+    "dataSource": "database",
+    "public": true
+  }
+}
